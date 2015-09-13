@@ -1,2 +1,2 @@
 # Front End Development
-Opdrachten voor de deeltoets
+Opdrachten voor de deeltoetsen en eindopdracht.
