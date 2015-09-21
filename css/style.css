@@ -1,13 +1,337 @@
-fieldset {
-    width: 200px;
+@font-face {
+    font-family: "bebasneue";
+    src: url("../fonts/bebasneue/bebasneue.eot");
+    src: url("../fonts/bebasneue/bebasneue.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/bebasneue/bebasneue.svg#bebasneue") format("svg"),
+    url("../fonts/bebasneue/bebasneue.ttf") format("opentype"),
+    url("../fonts/bebasneue/bebasneue.ttf") format("truetype"),
+    url("../fonts/bebasneue/bebasneue.woff") format("woff");
+    font-style: normal;
+    font-weight: normal;
+}
+@import url("../fonts/bebasneue/stylesheet.css");
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+html {
+    font-size: 62.5%; }
+body {
+    font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+    line-height: 27px;
+    font-weight: 400;
+    font-family: "Roboto", "Tahoma", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #b6b6b6;
+}
+img {
+    max-width: 100%!important;
+    height: auto;
+    display: inherit;
+}
+/* TYPOGRAPHY --------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+    font-family: 'bebasneue', 'Lato';
+    color: #121212;
+    font-style: italic;
+}
+h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
+h2 { font-size: 3.0rem; line-height: 1.25; letter-spacing: -.1rem; }
+h3 { font-size: 3.0rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h4 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; margin-top: 10px; }
+h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
+/* Larger than phablet */
+@media (min-width: 550px) {
+  h1 { font-size: 5.0rem; }
+  h2 { font-size: 3.6rem; }
+  h3 { font-size: 3.6rem; }
+  h4 { font-size: 3.0rem; }
+  h5 { font-size: 2.4rem; }
+  h6 { font-size: 1.5rem; }
+}
+p {
+    margin-top: 0;
+}
+a {
+    color: #121212;
+    font-weight: bold;
+    text-decoration: none;
+}
+a:hover {
+
+    /*color: #00ffBB;*/
+}
+/* HEADER ------------------------------------------------------------------- */
+body > header {
+    background-color: #FFCC00;
+    padding: 0 10%;
+    margin-bottom: 3rem
+}
+header > img {
+    /*width: 200px;*/
+    clear: both;
+}
+body > header > h1{
+    display: inline-block;
+    font-size: 2em;
+    padding: 1rem 2rem;
+    background: #121212;
+    color: #fff;
+    margin: 2rem 0;
     float: left;
-    margin: 0 20px 0 0;
 }
-input, select {
-    display: block;
-    margin: 10px 0;
-    padding: 5px;
+body > header > p{
+    display: none;
 }
+body > header > form {
+    /*clear: both;*/
+    padding: 0 0 2rem 0;
+}
+body > header > form > label {
+    color: #000000;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: bold;
+    margin: 0 0rem 0 0;
+    /*display: none;*/
+}
+.to-profile {
+    display: none;
+}
+body > header > nav {
+    display: none;
+}
+body > header > nav > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+body > header > nav > ul > li {
+    float: left;
+    margin-right: 30px;
+}
+/* MAIN ------------------------------------------------------------------ */
+body > main {
+    padding: 0 0 0 10%;
+    width: 80%;
+    float: left;
+    /*margin-right: 3%;*/
+    text-align: justify;
+}
+main > article > section > ol {
+    list-style: none;
+    padding: 1rem 0 4rem 0;
+    margin: 1rem 0 2rem 0;
+}
+main > article > section > ol > li {
+    margin-right: 30px;
+}
+main > article > section  ol li:last-child {
+    margin-right: 0;
+}
+/* SECTION ------------------------------------------------------------------ */
+body > section {
+    padding: 0 10%;
+    float: left;
+    display: none;
+}
+body > section {
+    width: 55%;
+}
+body > section > article {
+    width: 55%;
+    float: left;
+}
+/* ASIDE -------------------------------------------------------------------- */
+aside {
+    padding: 0 10%;
+}
+aside section {
+    width: 100%;
+    float: left;
+}
+
+aside section article {
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 2rem;
+}
+aside h3 {
+    font-size: 1.5em;
+}
+aside a:first-child {
+    font-weight: normal;
+}
+/* FOOTER ------------------------------------------------------------------- */
+footer {
+    clear: both;
+    padding: 0 10%;
+}
+footer section {
+    width: 100%;
+    float: left;
+    padding-top: 3rem;
+    margin-right: 3rem;
+}
+
+footer section:last-child {
+    margin-right: 0;
+}
+footer:last-child {
+    background-color: #121212;
+}
+#sitemap h2, #contact h2, #search h2, #about h2, #credits h2 {
+    color: #ffffff;
+    margin-top: 4%l
+}
+ #sitemap, #search, #contact {
+    display: none;
+}
+#sitemap a {
+    color: #b6b6b6;
+    font-weight: normal;
+}
+/* MEDIA QUERY -------------------------------------------------------------- */
+
+/* Forms
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  height: 38px;
+  padding: 2rem; /* The 6px vertically centers text on FF, ignored by Webkit */
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box; }
+/* Removes awkward default styles on some inputs for iOS */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
 textarea {
-    margin: 10px 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; }
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px; }
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid #000000;
+  outline: 0; }
+label,
+
+fieldset {
+  padding: 0;
+  border-width: 0; }
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline; }
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal; }
+input[type="search"] {
+    background-color: #ECBE03;
+    width: 100%;
+    border: 1px solid #eeeeee;
+    color: #000000;
+}
+button[type="submit"] {
+    display: none;
+}
+::-webkit-input-placeholder {
+   color: #000000;
+}
+
+
+/* Media Queries
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+Note: The best way to structure the use of media queries is to create the queries
+near the relevant code. For example, if you wanted to change the styles for buttons
+on small devices, paste the mobile query code up in the buttons section and style it
+there.
+*/
+
+
+/* For devices larger than 400px */
+@media (min-width: 400px) {
+    main {
+        width: 100%;
+        float: left;
+    }
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+    body > main {
+    padding: 0 0 0 10%;
+    width: 55%;
+    float: left;
+    margin-right: 3%;
+    text-align: justify;
+    }
+    aside section {
+    width: 27%;
+    float: left;
+    }
+    body > header > nav {
+    display: block;
+    float: right;
+    width: auto;
+    }
+    body > header > form {
+    clear: both;
+    padding: 0 0 2rem 0;
+    }
+    footer section {
+    display: block;
+    width: 20%;
+    float: left;
+    padding-top: 3rem;
+    margin-right: 3rem;
+    }
+    #sitemap, #search, #contact  {
+    display: block;
+    }
+    footer:last-child {
+    background-color: #121212;
+    display: flex;
+    }
+}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {
+    body > header > p{
+    display: block;
+    color: #000000;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: bold;
+    position: relative;
+    top: 3.5rem;
+    left: 3rem;
+    }
 }
