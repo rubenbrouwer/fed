@@ -11,19 +11,43 @@
 }
 @import url("../fonts/bebasneue/stylesheet.css");
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+* {
+    box-sizing: border-box;
+}
 html {
-    font-size: 62.5%; }
+    font-size: 62.5%;
+}
 body {
-    font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+    font-size: 1.5em;
     line-height: 27px;
     font-weight: 400;
-    font-family: "Roboto", "Tahoma", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", "Tahoma", sans-serif;
     color: #b6b6b6;
 }
+::selection {
+  background: #FFCC00;
+  color: #121212;
+  }
+::-moz-selection {
+  background: #FFCC00;
+  color: #121212;
+}
 img {
-    max-width: 100%!important;
+    max-width: 100% !important;
     height: auto;
     display: inherit;
+    width: 500px;
+    clear: both;
+    transition: all .2s ease-in-out;
+}
+img:hover {
+    transform: scale(1.1);
+}
+.active {
+    background-color: #ffffff;
+}
+.active a {
+    color: #121212;
 }
 /* TYPOGRAPHY --------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
@@ -37,18 +61,8 @@ h1, h2, h3, h4, h5, h6 {
 h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
 h2 { font-size: 3.0rem; line-height: 1.25; letter-spacing: -.1rem; }
 h3 { font-size: 3.0rem; line-height: 1.3;  letter-spacing: -.1rem; }
-h4 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; margin-top: 10px; }
-h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
-h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
-/* Larger than phablet */
-@media (min-width: 550px) {
-  h1 { font-size: 5.0rem; }
-  h2 { font-size: 3.6rem; }
-  h3 { font-size: 3.6rem; }
-  h4 { font-size: 3.0rem; }
-  h5 { font-size: 2.4rem; }
-  h6 { font-size: 1.5rem; }
-}
+h4 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; }
+
 p {
     margin-top: 0;
 }
@@ -57,21 +71,13 @@ a {
     font-weight: bold;
     text-decoration: none;
 }
-a:hover {
-
-    /*color: #00ffBB;*/
-}
 /* HEADER ------------------------------------------------------------------- */
 body > header {
     background-color: #FFCC00;
     padding: 0 10%;
     margin-bottom: 3rem
 }
-header > img {
-    /*width: 200px;*/
-    clear: both;
-}
-body > header > h1{
+body > header h1{
     display: inline-block;
     font-size: 2em;
     padding: 1rem 2rem;
@@ -79,13 +85,23 @@ body > header > h1{
     color: #fff;
     margin: 2rem 0;
     float: left;
+
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
 }
-body > header > p{
-    display: none;
+body > header h1:hover {
+    -moz-box-shadow: 0px 5px 0px 0px #ffffff ;
+    -webkit-box-shadow: 0px 5px 0px 0px #ffffff ;
+    box-shadow: 0px 5px 0px 0px #ffffff ;
+
+    border-radius: 30px 30px 30px 30px;
+    -moz-border-radius: 30px 30px 30px 30px;
+    -webkit-border-radius: 30px 30px 30px 30px;
 }
 body > header > form {
-    /*clear: both;*/
-    padding: 0 0 2rem 0;
+    padding-bottom: 2rem;
 }
 body > header > form > label {
     color: #000000;
@@ -93,105 +109,219 @@ body > header > form > label {
     font-style: italic;
     font-weight: bold;
     margin: 0 0rem 0 0;
-    /*display: none;*/
 }
-.to-profile {
+body > header > form > button, body > header > p, .to-profile {
     display: none;
 }
-body > header > nav {
-    display: none;
-}
-body > header > nav > ul {
+/* NAV ------------------------------------------------------------------- */
+header > nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-body > header > nav > ul > li {
+header > nav ul li {
+    padding: 1rem 2rem;
+    background: #121212;
+    color: #fff;
+    margin: 2rem 0;
+}
+header > nav ul li a {
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+}
+/* DIV ------------------------------------------------------------------ */
+div {
+    padding: 0 10%;
+    width: 100%;
     float: left;
-    margin-right: 30px;
+    text-align: justify;
 }
 /* MAIN ------------------------------------------------------------------ */
-body > main {
-    padding: 0 0 0 10%;
-    width: 80%;
-    float: left;
-    /*margin-right: 3%;*/
-    text-align: justify;
+main {
+    margin-bottom: 2rem;
+}
+main section:last-child {
+    margin-bottom: 2rem;
+}
+main h1 {
+    display: inline-block;
+    font-size: 2em;
+    padding: 1rem 2rem;
+    background: #121212;
+    color: #fff;
+    margin: 0 0 2rem 0;
+
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+main h1:hover {
+    -moz-box-shadow: 0px 5px 0px 0px #ffbb00 ;
+    -webkit-box-shadow: 0px 5px 0px 0px #ffbb00 ;
+    box-shadow: 0px 5px 0px 0px #ffbb00 ;
+
+    border-radius: 30px 30px 30px 30px;
+    -moz-border-radius: 30px 30px 30px 30px;
+    -webkit-border-radius: 30px 30px 30px 30px;
+}
+
+main section h3 {
+    text-align: left;
+    text-shadow: 10px 10px 0px #FFCC00;
+}
+main {
+    border-bottom: 1px solid #eeeeee;
 }
 main > article > section > ol {
     list-style: none;
-    padding: 1rem 0 4rem 0;
-    margin: 1rem 0 2rem 0;
+    padding: 0;
+    margin: 0;
 }
-main > article > section > ol > li {
-    margin-right: 30px;
+main footer {
+    padding: 0;
 }
-main > article > section  ol li:last-child {
+video {
+    width: 100%;
+}
+/* RELATED ------------------------------------------------------------------ */
+.related {
+    /*float: left;*/
+}
+.related article {
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 2rem;
+}
+.related article:nth-child(4n+4) {
     margin-right: 0;
 }
-/* SECTION ------------------------------------------------------------------ */
-body > section {
-    padding: 0 10%;
-    float: left;
-    display: none;
+.related h2 {
+    display: inline-block;
+    font-size: 2em;
+    padding: 1rem 2rem;
+    background: #121212;
+    color: #fff;
+    margin: 0 0 2rem 0;
+
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
 }
-body > section {
-    width: 55%;
+.related h2:hover {
+    -moz-box-shadow: 0px 5px 0px 0px #ffbb00 ;
+    -webkit-box-shadow: 0px 5px 0px 0px #ffbb00 ;
+    box-shadow: 0px 5px 0px 0px #ffbb00 ;
+
+    border-radius: 30px 30px 30px 30px;
+    -moz-border-radius: 30px 30px 30px 30px;
+    -webkit-border-radius: 30px 30px 30px 30px;
 }
-body > section > article {
-    width: 55%;
-    float: left;
+.related article h3 {
+    text-align: left;
+    font-size: 1.5em;
+    text-shadow: 10px 10px 0px #FFCC00;
 }
-/* ASIDE -------------------------------------------------------------------- */
+time {
+    font-size: 0.9em;
+    font-style: italic;
+}
+.related ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/* ASIDE ------------------------------------------------------------------ */
 aside {
     padding: 0 10%;
-}
-aside section {
-    width: 100%;
     float: left;
+    width: 100%;
 }
-
 aside section article {
     border-bottom: 1px solid #eeeeee;
     margin-bottom: 2rem;
 }
+aside section:last-child {
+    margin-bottom: 2rem;
+}
 aside h3 {
     font-size: 1.5em;
+    text-shadow: 10px 10px 0px #FFCC00;
 }
-aside a:first-child {
+aside > section > h2 > a {
     font-weight: normal;
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #121212;
+    color: #fff;
+    margin: 0 0 2rem 0;
+
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+aside > section > h2 > a:hover {
+    -moz-box-shadow: 0px 5px 0px 0px #ffbb00 ;
+    -webkit-box-shadow: 0px 5px 0px 0px #ffbb00 ;
+    box-shadow: 0px 5px 0px 0px #ffbb00 ;
+
+    border-radius: 30px 30px 30px 30px;
+    -moz-border-radius: 30px 30px 30px 30px;
+    -webkit-border-radius: 30px 30px 30px 30px;
+}
+aside footer {
+    padding: 0;
+    font-style: italic;
 }
 /* FOOTER ------------------------------------------------------------------- */
 footer {
     clear: both;
     padding: 0 10%;
 }
-footer section {
+footer {
     width: 100%;
     float: left;
     padding-top: 3rem;
     margin-right: 3rem;
 }
-
 footer section:last-child {
     margin-right: 0;
 }
 footer:last-child {
     background-color: #121212;
 }
-#sitemap h2, #contact h2, #search h2, #about h2, #credits h2 {
+footer h2 {
     color: #ffffff;
-    margin-top: 4%l
 }
  #sitemap, #search, #contact {
     display: none;
 }
-#sitemap a {
+#contact p {
+    margin: 0;
+}
+footer a {
     color: #b6b6b6;
     font-weight: normal;
 }
-/* MEDIA QUERY -------------------------------------------------------------- */
+input[type="submit"] {
+    display: none !important;
+}
+footer section {
+    margin: 0 2rem 2rem 0;
+    }
+/* FOOTER ------------------------------------------------------------------- */
+dl {
 
+}
+dt {
+    font-weight: bold;
+    color: #121212;
+}
+dd {
+    font-style: italic;
+}
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 input[type="email"],
@@ -204,26 +334,15 @@ input[type="password"],
 textarea,
 select {
   height: 38px;
-  padding: 2rem; /* The 6px vertically centers text on FF, ignored by Webkit */
+  padding: 6px 10px;
   background-color: #fff;
   border: 1px solid #D1D1D1;
   border-radius: 4px;
   box-shadow: none;
-  box-sizing: border-box; }
-/* Removes awkward default styles on some inputs for iOS */
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="text"],
-input[type="tel"],
-input[type="url"],
-input[type="password"],
+  box-sizing: border-box;
+  width: 100%; }
 textarea {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none; }
-textarea {
-  min-height: 65px;
+  min-height: 2rem;
   padding-top: 6px;
   padding-bottom: 6px; }
 input[type="email"]:focus,
@@ -235,43 +354,35 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 textarea:focus,
 select:focus {
-  border: 1px solid #000000;
-  outline: 0; }
+  border: 1px solid #999999;
+  outline: 0;
+  color: #000000; }
+input[type="search"] {
+    background-color: #FFFFFF;
+    color: #000000;
+    width: 100%;
+}
 label,
-
+legend {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: bold;
+ }
 fieldset {
   padding: 0;
-  border-width: 0; }
+  border-width: 0;
+  margin-right: 2rem;
+  text-align: left; }
+  fieldset em {
+    color:#FF6565;
+  }
 input[type="checkbox"],
 input[type="radio"] {
   display: inline; }
-label > .label-body {
-  display: inline-block;
-  margin-left: .5rem;
-  font-weight: normal; }
-input[type="search"] {
-    background-color: #ECBE03;
-    width: 100%;
-    border: 1px solid #eeeeee;
-    color: #000000;
+  ::-webkit-input-placeholder {
+   color: #999999;
 }
-button[type="submit"] {
-    display: none;
-}
-::-webkit-input-placeholder {
-   color: #000000;
-}
-
-
-/* Media Queries
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-/*
-Note: The best way to structure the use of media queries is to create the queries
-near the relevant code. For example, if you wanted to change the styles for buttons
-on small devices, paste the mobile query code up in the buttons section and style it
-there.
-*/
-
+/* MEDIA QUERY -------------------------------------------------------------- */
 
 /* For devices larger than 400px */
 @media (min-width: 400px) {
@@ -279,59 +390,73 @@ there.
         width: 100%;
         float: left;
     }
+    body > header > h1{
+        display: inline-block;
+        font-size: 2em;
+        padding: 1rem 2rem;
+        background: #121212;
+        color: #fff;
+        margin: 2rem 0;
+        float: left;
+    }
 }
 
 /* Larger than tablet */
-@media (min-width: 750px) {}
+@media (min-width: 750px) {
+    div {
+        float: left;
+        width: 60%;
+        padding: 0 0 0 10%;
+        margin-right: 3%;
+    }
+    aside {
+        float: left;
+        width: 37%;
+        padding: 0 10% 0 0;
+    }
+    #contact  {
+        display: block;
+    }
+}
 
 /* Larger than desktop */
-@media (min-width: 1000px) {
-    body > main {
-    padding: 0 0 0 10%;
-    width: 55%;
-    float: left;
-    margin-right: 3%;
-    text-align: justify;
+@media (min-width: 975px) {
+    header > nav ul li {
+        float: left;
     }
-    aside section {
-    width: 27%;
-    float: left;
+    header > form {
+        clear: both;
+        padding: 0 0 2rem 0;
     }
-    body > header > nav {
-    display: block;
-    float: right;
-    width: auto;
+    header > form > label {
+        clear: both;
     }
-    body > header > form {
-    clear: both;
-    padding: 0 0 2rem 0;
-    }
-    footer section {
-    display: block;
-    width: 20%;
-    float: left;
-    padding-top: 3rem;
-    margin-right: 3rem;
-    }
-    #sitemap, #search, #contact  {
-    display: block;
+    #search  {
+        display: block;
     }
     footer:last-child {
-    background-color: #121212;
-    display: flex;
+        background-color: #121212;
+        display: flex;
+    }
+    footer section {
+        width: 25%;
     }
 }
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {
-    body > header > p{
-    display: block;
-    color: #000000;
-    text-transform: uppercase;
-    font-style: italic;
-    font-weight: bold;
-    position: relative;
-    top: 3.5rem;
-    left: 3rem;
+    div {
+        float: left;
+        width: 70%;
+        padding: 0 0 0 10%;
+        margin-right: 3%;
     }
+    aside {
+        float: left;
+        width: 27%;
+        padding: 0 10% 0 0;
+    }
+}
+@media (min-width: 1920px) {
+
 }
