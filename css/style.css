@@ -223,6 +223,12 @@ video {
     font-size: 1.5em;
     text-shadow: 10px 10px 0px #FFCC00;
 }
+.related article header p {
+    margin: 0;
+}
+.related article header {
+    margin-bottom: 2rem;
+}
 time {
     font-size: 0.9em;
     font-style: italic;
@@ -311,7 +317,7 @@ input[type="submit"] {
 footer section {
     margin: 0 2rem 2rem 0;
     }
-/* FOOTER ------------------------------------------------------------------- */
+/* DD DT DL ------------------------------------------------------------------- */
 dl {
 
 }
@@ -321,6 +327,7 @@ dt {
 }
 dd {
     font-style: italic;
+    margin: 0;
 }
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
