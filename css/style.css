@@ -201,9 +201,10 @@ video {
     border-bottom: 1px solid #eeeeee;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
+    margin-right: 2rem;
 }
 .related h2 {
-    display: inline-block;
+    display: table;
     font-size: 2em;
     padding: 1rem 2rem;
     background: #121212;
@@ -244,6 +245,8 @@ aside {
     padding: 0 10%;
     float: left;
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 aside section article {
     border-bottom: 1px solid #eeeeee;
@@ -289,10 +292,11 @@ footer {
     width: 100%;
     float: left;
     padding-top: 3rem;
-    margin-right: 3rem;
 }
 footer:last-child {
     background-color: #121212;
+    display: flex;
+    flex-direction: column;
 }
 footer section {
     margin: 0 2rem 2rem 0;
@@ -410,7 +414,7 @@ input[type="radio"] {
 }
 
 /* Larger than tablet */
-/*@media (min-width: 750px)*/
+/*@media (min-width: 752px)*/
 @media (min-width: 47em) {
     div {
         float: left;
@@ -429,7 +433,7 @@ input[type="radio"] {
 }
 
 /* Larger than desktop */
-/*@media (min-width: 975px)*/
+/*@media (min-width: 976px)*/
 @media (min-width: 61em) {
     header > nav ul li {
         float: left;
@@ -446,7 +450,8 @@ input[type="radio"] {
     }
     footer:last-child {
         background-color: #121212;
-        display: flex;
+            display: flex;
+            flex-direction: row;
     }
     footer section {
         width: 45%;
@@ -454,8 +459,7 @@ input[type="radio"] {
 }
 
  /*Larger than Desktop HD */
-/*@media (min-width: 1200px)*/
-/*@media (min-width: 75em)*/
+/*@media (min-width: 1440px)*/
 @media (min-width: 90em) {
     div {
         float: left;
@@ -470,4 +474,8 @@ input[type="radio"] {
     }
 }
 /*@media (min-width: 1920px)*/
-@media (min-width: 120em) {}
+@media (min-width: 120em) {
+    #sitemap {
+        display: block;
+    }
+}
