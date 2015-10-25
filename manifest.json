@@ -1,0 +1,17 @@
+{
+  "name": "Eindopdracht FED",
+  "short_name": "FED",
+  "icons": [{
+        "src": "img/touch/android-chrome-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "img/touch/android-chrome-384x384.png",
+        "type": "image/png",
+        "sizes": "384x384"
+      }],
+  "display": "standalone",
+  "background_color": "#FFCC00",
+  "theme_color": "#FFCC00"
+}

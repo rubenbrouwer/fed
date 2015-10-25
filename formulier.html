@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="nl">
-<!--
-   ___       __              ___
-  / _ \__ __/ /  ___ ___    / _ )_______  __ ___    _____ ____
- / , _/ // / _ \/ -_) _ \  / _  / __/ _ \/ // / |/|/ / -_) __/
-/_/|_|\_,_/_.__/\__/_//_/ /____/_/  \___/\_,_/|__,__/\__/_/
- -->
+    <!--
+       ___       __              ___
+      / _ \__ __/ /  ___ ___    / _ )_______  __ ___    _____ ____
+     / , _/ // / _ \/ -_) _ \  / _  / __/ _ \/ // / |/|/ / -_) __/
+    /_/|_|\_,_/_.__/\__/_//_/ /____/_/  \___/\_,_/|__,__/\__/_/
+     -->
     <head>
         <meta charset="utf-8">
-        <title>Formulierpagina</title>
+        <title>Formulier</title>
         <meta name="theme-color" content="#FFCC00">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
 
+        <!-- Add to homescreen for Chrome on Android -->
+        <link rel="manifest" href="manifest.json">
+        <meta name="mobile-web-app-capable" content="yes">
+        <link rel="icon" sizes="192x192" href="img/touch/android-chrome-192x192.png">
+        <link rel="icon" sizes="384x384" href="img/touch/android-chrome-384x384.png">
+        <link rel="icon" href="img/touch/favicon.ico">
+
+        <!-- stylesheets -->
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/pushy.css">
+
+
     </head>
     <body>
 
@@ -23,17 +34,31 @@
         <header>
             <h1>CMD Amsterdam - Intranet</h1>
             <p>Communication and Multimedia Design is een ontwerpopleiding voor interactieve media in Amsterdam.</p>
+            <div class="menu-btn">☰</div>
             <img src="img/cmd_logo.png" alt="">
-            <nav>
+            <!-- mobiele navigatie -->
+            <nav class="pushy pushy-left">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="artikel.html">Opleiding</a></li>
+                    <li><a href="#">Onderwijs programma</a></li>
+                    <li><a href="#">Organisatie</a></li>
+                    <li><a class="active" href="formulier.html">Stages en projecten</a></li>
+                </ul>
+            </nav>
+            <div class="site-overlay"></div>
+            <!-- desktop navigatie -->
+            <nav class="nav-desktop">
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="artikel.html">Opleiding</a></li>
                     <li><a href="#">Onderwijsprogramma</a></li>
                     <li><a href="#">Organisatie</a></li>
-                    <li><a href="formulier.html">Stages en projecten</a></li>
+                    <li><a class="active" href="formulier.html">Stages en projecten</a></li>
                 </ul>
             </nav>
-            <form method="get" action="Formulierpagina.html">
+
+            <form method="get" action="Artikelpagina.html">
                 <label>
                     Zoeken
                     <input type="search" placeholder="Zoek op titel, beschrijving, etc…" name="q">
@@ -57,47 +82,49 @@
                 <fieldset>
                     <legend>Contactgegevens</legend>
                     <label>
-                        <span>Naam:</span>
+                        <span>Naam</span> <em>*</em>
                         <input type="text" name="name" required>
-                        <em>vereist</em>
                     </label>
                     <label>
-                        <span>Bedrijf:</span>
+                        <span>Bedrijf</span> <em>*</em>
                         <input type="text" name="company" required>
-                        <em>vereist</em>
                     </label>
                     <label>
-                        <span>Adres:</span>
+                        <span>Adres</span> <em>*</em>
                         <input type="text" name="address" required>
-                        <em>vereist</em>
                     </label>
                     <label>
-                        <span>Postcode:</span>
+                        <span>Postcode</span> <em>*</em>
                         <input type="text" name="postal" required>
-                        <em>vereist</em>
                     </label>
                     <label>
-                        <span>Telefoon:</span>
+                        <span>Telefoon</span>
                         <input type="tel" name="phone">
                     </label>
                     <label>
-                        <span>E-mailadres:</span>
+                        <span>E-mailadres</span> <em>*</em>
                         <input type="email" name="email" required>
-                        <em>vereist</em>
                     </label>
                 </fieldset>
 
                 <fieldset>
-                    <legend>Ik wil mij aanmelden:</legend>
-                    <label>
-                        <input type="radio" name="submit-for" value="project">
-                        <span>Voor een project</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="submit-for" value="stage">
-                        <span>Als stagebedrijf</span>
-                    </label>
+                    <legend>Ik wil mij aanmelden voor:</legend>
+
+                    <input id="project-aanmelden" name="aanmelden" type=radio />
+                    <label for="project-aanmelden">voor een project</label>
+
+                    <input id="stage-aanmelden" name="aanmelden" type=radio />
+                    <label for="stage-aanmelden">voor een stage</label>
                 </fieldset>
+
+                <!-- <fieldset>
+                    <legend>Ik wil mij aanmelden:</legend>
+                    <select>
+                        <option value="-">-</option>
+                        <option value="project">Project</option>
+                        <option value="stage">Stage</option>
+                    </select>
+                </fieldset> -->
 
                 <fieldset id="project">
                     <legend>Project</legend>
@@ -446,94 +473,92 @@
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
             </section>
 
-            <!--
-                Twitter feed:
-                @cmdamsterdam
-                #cmda
-            -->
-
         </aside>
 
         <!-- Footer informatie -->
         <footer>
-            <section id="sitemap">
-                <h2>Sitemap</h2>
-                <ul>
-                    <li>
-                        <a href="#">Opleiding</a>
-                        <ul>
-                            <li><a href="#">Visie &amp; Beleid</a></li>
-                            <li><a href="#">Opbouw Studieprogramma</a></li>
-                            <li><a href="#">Competenties</a></li>
-                            <li><a href="#">Diploma</a></li>
-                            <li><a href="#">Beroepen</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Onderwijsprogramma</a>
-                        <ul>
-                            <li><a href="#">Mededelingen</a></li>
-                            <li><a href="#">Uitagenda</a></li>
-                            <li><a href="#">Propedeuse</a></li>
-                            <li><a href="#">Verdieping 1</a></li>
-                            <li><a href="#">Verdieping 2</a></li>
-                            <li><a href="#">Afstuderen</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Organisatie</a>
-                        <ul>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Docenten</a></li>
-                            <li><a href="#">Onderwijsbureau</a></li>
-                            <li><a href="#">Stagebureau</a></li>
-                            <li><a href="#">Buitenlandbureau</a></li>
-                            <li><a href="#">Examencommissie</a></li>
-                            <li><a href="#">Decaan</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Stages en Projecten</a>
-                        <ul>
-                            <li><a href="#">Stages</a></li>
-                            <li><a href="#">Projecten</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
+            <div>
+                <section id="sitemap">
+                    <h2>Sitemap</h2>
+                    <ul>
+                        <li>
+                            <a href="#">Opleiding</a>
+                            <ul>
+                                <li><a href="#">Visie &amp; Beleid</a></li>
+                                <li><a href="#">Opbouw Studieprogramma</a></li>
+                                <li><a href="#">Competenties</a></li>
+                                <li><a href="#">Diploma</a></li>
+                                <li><a href="#">Beroepen</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Onderwijsprogramma</a>
+                            <ul>
+                                <li><a href="#">Mededelingen</a></li>
+                                <li><a href="#">Uitagenda</a></li>
+                                <li><a href="#">Propedeuse</a></li>
+                                <li><a href="#">Verdieping 1</a></li>
+                                <li><a href="#">Verdieping 2</a></li>
+                                <li><a href="#">Afstuderen</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Organisatie</a>
+                            <ul>
+                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Docenten</a></li>
+                                <li><a href="#">Onderwijsbureau</a></li>
+                                <li><a href="#">Stagebureau</a></li>
+                                <li><a href="#">Buitenlandbureau</a></li>
+                                <li><a href="#">Examencommissie</a></li>
+                                <li><a href="#">Decaan</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Stages en Projecten</a>
+                            <ul>
+                                <li><a href="#">Stages</a></li>
+                                <li><a href="#">Projecten</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
 
-            <section id="contact">
-                <h2>Contact</h2>
-                <p>CMD Amsterdam</p>
-                <p>Bezoekadres: Rhijnspoorplein 1, 1091 GC Amsterdam</p>
-                <p>Postadres: Postbus 1025, 1000 BA Amsterdam</p>
-                <p>Telefoon: 020 595 1855</p>
-                <p>Email: <a href="#" class="email">info@cmd.hva.nl</a></p>
-                <p>RSS: <a href="#" class="rss">Feed intranet</a></p>
-            </section>
+                <section id="contact">
+                    <h2>Contact</h2>
+                    <p>CMD Amsterdam</p>
+                    <p>Bezoekadres: Rhijnspoorplein 1, 1091 GC Amsterdam</p>
+                    <p>Postadres: Postbus 1025, 1000 BA Amsterdam</p>
+                    <p>Telefoon: 020 595 1855</p>
+                    <p>Email: <a href="#" class="email">info@cmd.hva.nl</a></p>
+                    <p>RSS: <a href="#" class="rss">Feed intranet</a></p>
+                </section>
 
-            <section id="search">
-                <h2>Zoeken</h2>
-                <form method="get" action="Formulierpagina.html">
-                    <input type="search" name="q">
-                    <input type="submit" value="Zoeken">
-                </form>
-            </section>
+                <section id="search">
+                    <h2>Zoeken</h2>
+                    <form method="get" action="Formulierpagina.html">
+                        <input type="search" name="q">
+                        <input type="submit" value="Zoeken">
+                    </form>
+                </section>
 
-            <section id="about" lang="en">
-                <h2>About</h2>
-                <p>CMD Amsterdam is een ontwerp opleiding voor Interactieve Media. Op de opleiding Communication &amp; Multimedia Design (CMD) Amsterdam leer je alles over het ontwerpen van online interactieve media. Dit betekent begrijpen, bedenken en maken van interactieve mediatoepassingen zoals websites, mobiele applicaties en interactieve televisie.</p>
-            </section>
+                <section id="about" lang="en">
+                    <h2>About</h2>
+                    <p>CMD Amsterdam is een ontwerp opleiding voor Interactieve Media. Op de opleiding Communication &amp; Multimedia Design (CMD) Amsterdam leer je alles over het ontwerpen van online interactieve media. Dit betekent begrijpen, bedenken en maken van interactieve mediatoepassingen zoals websites, mobiele applicaties en interactieve televisie.</p>
+                </section>
 
-            <section id="credits" lang="en">
-                <h2>Credits</h2>
-                <p>© 2015 Hogeschool van Amsterdam - Domein Digitale Media en Creatieve Industrie - CMD Amsterdam</p>
-            </section>
+                <section id="credits" lang="en">
+                    <h2>Credits</h2>
+                    <p>© 2015 Hogeschool van Amsterdam - Domein Digitale Media en Creatieve Industrie - CMD Amsterdam</p>
+                </section>
 
-            <p id="feedback"><a href="#">Geef ons feedback</a></p>
-
+                <p id="feedback"><a href="#">Geef ons feedback</a></p>
+            </div>
         </footer>
-
+        <script src="js/javascript.js"></script>
+        <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
+        <script src="js/pushy.min.js"></script>
     </body>
 </html>
+
