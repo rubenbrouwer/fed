@@ -7,11 +7,13 @@ var stageFieldset = document.querySelector('fieldset:nth-of-type(4)');
 projectFieldset.classList.add('is-invisible');
 stageFieldset.classList.add('is-invisible');
 
+// laat de fieldset van Project zien
 document.querySelector('input[type="radio"]:first-of-type').onclick = function() {
     projectFieldset.classList.add('is-visible');
     stageFieldset.classList.remove('is-visible');
 }
 
+// laat de fieldset van Stage zien
 document.querySelector('input[type="radio"]:nth-of-type(2)').onclick = function() {
     stageFieldset.classList.add('is-visible');
     projectFieldset.classList.remove('is-visible');
